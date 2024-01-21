@@ -1,0 +1,33 @@
+{
+  "name": "js-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test:1": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=1/tests.spec.js",
+    "format": "prettier --write --ignore-path .gitignore ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatalliaK/JS-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NatalliaK/JS-course/issues"
+  },
+  "homepage": "https://github.com/NatalliaK/JS-course#readme",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.4"
+  }
+}
