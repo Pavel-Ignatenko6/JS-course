@@ -38,7 +38,7 @@ describe('"findSmallestAndBiggest" function should return correct array of 2 num
     expect(findSmallestAndBiggest([1, 1, 1, 1, 1, 1, 1, 1, 1])).toEqual([1, 1]);
     expect(findSmallestAndBiggest([1, 2, 3, 1, 2, 3, 1, 2, 3])).toEqual([1, 3]);
     expect(findSmallestAndBiggest([1, 2, 3, 4, 5, 6, 7, 8, 9])).toEqual([1, 9]);
-    expect(findSmallestAndBiggest([8, 2, 3, 4, 5, 6, 7, 1])).toEqual([1, 7]);
+    expect(findSmallestAndBiggest([8, 2, 3, 4, 5, 6, 7, 1])).toEqual([1, 8]);
   });
 });
 
