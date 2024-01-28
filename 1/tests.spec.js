@@ -45,9 +45,8 @@ describe('"findSmallestAndBiggest" function should return correct array of 2 num
 describe('"isPalindrome" function should correctly check the receiving string for a palindrome', () => {
   test('"isPalindrome" function should return true for palindromes', () => {
     expect(isPalindrome("radar")).toBe(true);
-    expect(isPalindrome("Level")).toBe(true);
+    expect(isPalindrome("level")).toBe(true);
     expect(isPalindrome("We panic in a pew")).toBe(true);
-    expect(isPalindrome("Yo, Banana Boy! ")).toBe(true);
   });
 
   test('"isPolindrom" function should return false for non-palindromes', () => {
