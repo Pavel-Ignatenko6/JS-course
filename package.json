@@ -5,8 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test:1": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=1/tests.spec.js",
-    "test:2": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=2/tests.spec.js",
+    "test:1": "npx jest --testPathPattern=1/tests.spec.js",
+    "test:2": "npx jest --testPathPattern=2/tests.spec.js",
+    "test:3": "npx jest --testPathPattern=3/tests.spec.js",
+    "test:5": "npx jest --testPathPattern=5/tests.spec.js",
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "husky": {

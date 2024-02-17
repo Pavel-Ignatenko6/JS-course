@@ -1,5 +1,5 @@
 /**
- * Write an implementation of the 'isPalindrome' function
+ * Write an implementation of the 'isPalindrome' function without using the reverse and join methods
  * that will check if a string is a palindrome
  * (a word, phrase, or sequence that reads the same backward as forward).
  *

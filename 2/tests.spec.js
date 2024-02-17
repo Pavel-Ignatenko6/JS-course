@@ -4,7 +4,7 @@ import {
   getSumOddAndEvenNumbers,
   getSumOfNumbers,
   isNumericArray,
-  multiplyArrNumbers,
+  squareArrNumbers,
   sumNumber,
   sumOfOddNumbers
 } from './tasks.js';
@@ -16,9 +16,9 @@ describe('"sumNumber" should return correct sum of numbers', () => {
     expect(sumNumber(0, 0)).toBe(0);
     expect(sumNumber(-1, 1)).toBe(0);
     expect(sumNumber(-1, -1)).toBe(-2);
-    expect(sumNumber(0.5, 0.7)).toBeCloseTo(1.2);
-    expect(sumNumber(0.1, 0.2)).toBeCloseTo(0.3);
-    expect(sumNumber(0.28, 0.14)).toBeCloseTo(0.42);
+    expect(sumNumber(0.5, 0.7)).toBe(1.2);
+    expect(sumNumber(0.1, 0.2)).toBe(0.3);
+    expect(sumNumber(0.28, 0.14)).toBe(0.42);
   });
 });
 
@@ -34,18 +34,18 @@ describe('"isNumericArray" should return true if array contains only numbers', (
   });
 });
 
-describe('"multiplyArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
-  test('"multiplyArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
-    expect(multiplyArrNumbers([], 1)).toEqual([]);
-    expect(multiplyArrNumbers([1, 2, 3, 4], 2)).toEqual([
+describe('"squareArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
+  test('"squareArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
+    expect(squareArrNumbers([], 1)).toEqual([]);
+    expect(squareArrNumbers([1, 2, 3, 4], 2)).toEqual([
       1, 4
     ]);
-    expect(multiplyArrNumbers([1, 2, 3, 4], 4)).toEqual([
+    expect(squareArrNumbers([1, 2, 3, 4], 4)).toEqual([
       1, 4, 9, 16
     ]);
-    expect(multiplyArrNumbers([1, 1, 1, 1, 1], 1)).toEqual([1, 1, 1, 1, 1]);
-    expect(multiplyArrNumbers([1, 2, 3, 5], 6)).toEqual([1, 4, 9, 25]);
-    expect(multiplyArrNumbers([1, 2, 3, 4, 5, 6, 7], 5)).toEqual([
+    expect(squareArrNumbers([1, 1, 1, 1, 1], 1)).toEqual([1, 1, 1, 1, 1]);
+    expect(squareArrNumbers([1, 2, 3, 5], 6)).toEqual([1, 4, 9, 25]);
+    expect(squareArrNumbers([1, 2, 3, 4, 5, 6, 7], 5)).toEqual([
       1, 4, 9, 16, 25
     ]);
   });

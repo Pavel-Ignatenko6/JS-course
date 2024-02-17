@@ -1,7 +1,5 @@
-export default {
-  testEnvironment: 'jest-environment-node',
-  transform: {
-    '\\.[jt]s?$': 'babel-jest',
-    transformIgnorePatterns: ['/node_modules/**/*'],
-  },
-};
+module.exports = async() => ({
+  verbose: true,
+  transform: {},
+  presets: [['@babel/preset-env']],
+});
