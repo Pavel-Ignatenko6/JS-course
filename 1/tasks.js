@@ -8,8 +8,15 @@
  * @returns {str}
  */
 
+console.log("Tests below v");
+
 export function truncateString(str) {
-  // your implementation here
+  if (str.length > 10) {
+    str = str.slice(0, 7);
+    str = str + "...";
+    return str;
+  }
+  return str;
 }
 
 /**
@@ -21,7 +28,7 @@ export function truncateString(str) {
  */
 
 export function selectUniqueValues(arr) {
-  // your implementation here
+  return [...new Set(arr)];
 }
 
 /**
@@ -33,8 +40,17 @@ export function selectUniqueValues(arr) {
  */
 
 export function findSmallestAndBiggest(arr) {
-  // your implementation here
+  let min;
+  let max;
+
+  if (arr.length) {
+    min = Math.min(...arr);
+    max = Math.max(...arr);
+  }
+
+  return [min, max];
 }
+console.log(findSmallestAndBiggest([]));
 
 /**
  * Write an implementation of the 'isPalindrome' function
@@ -45,5 +61,17 @@ export function findSmallestAndBiggest(arr) {
  * @returns {boolean}
  */
 export function isPalindrome(str) {
-  // your implementation here
+  //  make string lowercase and remove spaces, commas
+  const lowerCaseString = str
+    .toLowerCase()
+    .replace(/,/g, "")
+    .replace(/!/g, "")
+    .replace(/ /g, "");
+
+  // split a string into an array, then reverse it, then join it back to string
+  const splitString = lowerCaseString.split("");
+  const reversedString = splitString.reverse().join("");
+
+  // Comparison returns boolean by default
+  return lowerCaseString === reversedString;
 }
