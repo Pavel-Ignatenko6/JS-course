@@ -1,13 +1,13 @@
-import { describe, expect, test } from '@jest/globals';
+import { describe, expect, test } from "@jest/globals";
 
 import {
   getSumOddAndEvenNumbers,
   getSumOfNumbers,
   isNumericArray,
-  squareArrNumbers,
+  multiplyArrNumbers,
   sumNumber,
-  sumOfOddNumbers
-} from './tasks.js';
+  sumOfOddNumbers,
+} from "./tasks.js";
 
 describe('"sumNumber" should return correct sum of numbers', () => {
   test('"sumNumber" should return correct sum of numbers', () => {
@@ -19,6 +19,7 @@ describe('"sumNumber" should return correct sum of numbers', () => {
     expect(sumNumber(0.5, 0.7)).toBe(1.2);
     expect(sumNumber(0.1, 0.2)).toBe(0.3);
     expect(sumNumber(0.28, 0.14)).toBe(0.42);
+    expect(sumNumber(0.11111111111, 0.11111111111)).toBe(0.22222222222);
   });
 });
 
@@ -26,27 +27,23 @@ describe('"isNumericArray" should return true if array contains only numbers', (
   test('"isNumericArray" should return true if array contains only numbers', () => {
     expect(isNumericArray([])).toBe(true);
     expect(isNumericArray([1, 2, 0.3, 4, 5, 6, 7, 8, 9])).toBe(true);
-    expect(isNumericArray([1, '1', 1, 1, 1])).toBe(false);
+    expect(isNumericArray([1, "1", 1, 1, 1])).toBe(false);
     expect(isNumericArray([1, 2, undefined])).toBe(false);
     expect(isNumericArray([1, 2, null])).toBe(false);
-    expect(isNumericArray([1, 2, Infinity])).toBe(false);
     expect(isNumericArray([8, 2, NaN])).toBe(false);
+    expect(isNumericArray([1, 2, Infinity])).toBe(false);
   });
 });
 
-describe('"squareArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
-  test('"squareArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
-    expect(squareArrNumbers([], 1)).toEqual([]);
-    expect(squareArrNumbers([1, 2, 3, 4], 2)).toEqual([
-      1, 4
-    ]);
-    expect(squareArrNumbers([1, 2, 3, 4], 4)).toEqual([
-      1, 4, 9, 16
-    ]);
-    expect(squareArrNumbers([1, 1, 1, 1, 1], 1)).toEqual([1, 1, 1, 1, 1]);
-    expect(squareArrNumbers([1, 2, 3, 5], 6)).toEqual([1, 4, 9, 25]);
-    expect(squareArrNumbers([1, 2, 3, 4, 5, 6, 7], 5)).toEqual([
-      1, 4, 9, 16, 25
+describe('"multiplyArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
+  test('"multiplyArrNumbers" should return new array with the multiplied values of the array elements if they are not greater than the maxNumber passed to the array', () => {
+    expect(multiplyArrNumbers([], 1)).toEqual([]);
+    expect(multiplyArrNumbers([1, 2, 3, 4], 2)).toEqual([1, 4]);
+    expect(multiplyArrNumbers([1, 2, 3, 4], 4)).toEqual([1, 4, 9, 16]);
+    expect(multiplyArrNumbers([1, 1, 1, 1, 1], 1)).toEqual([1, 1, 1, 1, 1]);
+    expect(multiplyArrNumbers([1, 2, 3, 5], 6)).toEqual([1, 4, 9, 25]);
+    expect(multiplyArrNumbers([1, 2, 3, 4, 5, 6, 7], 5)).toEqual([
+      1, 4, 9, 16, 25,
     ]);
   });
 });
@@ -78,23 +75,23 @@ describe('"getSumOddAndEvenNumbers" should return the sum of all odd and even nu
   test('"getSumOddAndEvenNumbers" should return the sum of all odd and even numbers in the array', () => {
     expect(getSumOddAndEvenNumbers([])).toEqual({
       odd: 0,
-      even: 0
+      even: 0,
     });
     expect(getSumOddAndEvenNumbers([2, 4])).toEqual({
       odd: 0,
-      even: 6
+      even: 6,
     });
     expect(getSumOddAndEvenNumbers([1])).toEqual({
       odd: 1,
-      even: 0
+      even: 0,
     });
     expect(getSumOddAndEvenNumbers([1, 2, 3, 4])).toEqual({
       odd: 4,
-      even: 6
+      even: 6,
     });
     expect(getSumOddAndEvenNumbers([1, 2, 3, 4, 5])).toEqual({
       odd: 9,
-      even: 6
+      even: 6,
     });
   });
 });
