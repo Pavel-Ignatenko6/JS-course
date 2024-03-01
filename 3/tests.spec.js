@@ -43,8 +43,25 @@ describe('"copyObject" function should return a new object with the same values 
         }},
     };
 
-    expect(obj).toEqual(result);
-    expect(obj).not.toBe(result);
+    expect(result).not.toBe(obj);
+    expect(result).toEqual(obj);
+
+    expect(result.b).not.toBe(obj.b);
+    expect(result.d).not.toBe(obj.d);
+    expect(result.e.f).not.toBe(obj.e.f);
+    expect(result.e.f.h).not.toBe(obj.e.f.h);
+
+    result.a = 10;
+    result.b.c = 20;
+    result.d.push(4);
+    result.e.f.g = 'world';
+    result.e.f.h.i = 'changed';
+
+    expect(obj.a).toBe(1);
+    expect(obj.b.c).toBe(2);
+    expect(obj.d).toEqual([1, 2, 3]);
+    expect(obj.e.f.g).toBe('hello');
+    expect(obj.e.f.h.i).toBeNull();
   });
 });
 
