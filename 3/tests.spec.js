@@ -20,31 +20,28 @@ describe('"checkMultiple" function should return correct string value', () => {
 });
 
 describe('"copyObject" function should return a new object with the same values as the original object', () => {
-  test('should return a new object with the same values as the original object', () => {
+  test("should return a new object with the same values as the original object", () => {
     const obj = {
       a: 1,
-      b: { c: 2},
+      b: { c: 2 },
       d: [1, 2, 3],
       e: {
         f: {
-          g: 'hello',
-          h: { i: null }
-        }},
+          g: "hello",
+          h: { i: null },
+        },
+      },
     };
 
-    const result = {
-      a: 1,
-      b: { c: 2},
-      d: [1, 2, 3],
-      e: {
-        f: {
-          g: 'hello',
-          h: { i: null }
-        }},
-    };
+    const result = copyObject(obj);
 
-    expect(copyObject(obj)).toEqual(result);
     expect(copyObject(obj)).not.toBe(result);
+    expect(copyObject(obj)).toEqual(result);
+
+    expect(copyObject(obj).b).not.toBe(result.b);
+    expect(copyObject(obj).d).not.toBe(result.d);
+    expect(copyObject(obj).e.f).not.toBe(result.e.f);
+    expect(copyObject(obj).e.f.h).not.toBe(result.e.f.h);
   });
 });
 

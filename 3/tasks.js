@@ -37,9 +37,36 @@ export function checkMultiple(num) {
  */
 export function copyObject(obj) {
   // your implementation here
-  const newObj = {};
-  return Object.assign(newObj, obj);
+  let resultObj, value, key;
+
+  if (typeof obj !== "object" || obj === null) {
+    return obj; // Return the value if obj is not an object
+  }
+
+  // Create an array or object to hold the values
+  resultObj = Array.isArray(obj) ? [] : {};
+
+  for (key in obj) {
+    value = obj[key];
+
+    // Recursively (deep) copy for nested objects, including arrays
+    resultObj[key] = copyObject(value);
+  }
+
+  return resultObj;
 }
+
+console.log(copyObject({
+      a: 1,
+      b: { c: 2 },
+      d: [1, 2, 3],
+      e: {
+        f: {
+          g: "hello",
+          h: { i: null },
+        },
+      },
+    }))
 
 /**
  * Write an implementation of the 'findIndex' function that takes a sorted array and a value
@@ -65,11 +92,9 @@ export function findIndex(arr, value) {
  */
 export function sortArray(arr) {
   // your implementation here
-  return arr.toSorted((a, b) => a - b);
+  return arr.sort((a, b) => a - b);
 }
 
-// console.log(sortArray([100, 2, 10, 4, 0, 68, 74, 28, 9]));
-console.log(sortArray([-9, 80, 7, 6, 50, 4, -3, 20, 0]));
 
 /**
  * Write an implementation of the 'sumListValues' function
@@ -83,16 +108,28 @@ console.log(sortArray([-9, 80, 7, 6, 50, 4, -3, 20, 0]));
 export function sumListValues(list) {
   // your implementation here
 
-    for (key in list) {
-    if (typeof key === 'object' && key !== null) {
-      for (innerKey in key)
-    }
-  }
+let value, key, num;
+let result = 0
 
-  return result
+if (typeof list !== "object" || list === null) {
+  return list; // Return the value if obj is not an object
 }
 
-sumListValues({
+for (key in list) {
+  value = list[key];
+  // Recursively (deep) copy for nested objects, including arrays
+  if (typeof list[key] === 'object' && value !== null) {
+    console.log(value.value);
+
+    result = value.value + value.value
+    sumListValues(value)
+    return result
+  }
+}
+
+}
+
+console.log(sumListValues({
   value: 2,
   next: {
     value: 4,
@@ -113,4 +150,4 @@ sumListValues({
       },
     },
   },
-});
+}))
