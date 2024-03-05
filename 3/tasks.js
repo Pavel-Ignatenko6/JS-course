@@ -37,7 +37,7 @@ export function checkMultiple(num) {
  */
 export function copyObject(obj) {
   // your implementation here
-  let resultObj, value, key;
+  let resultObj
 
   if (typeof obj !== "object" || obj === null) {
     return obj; // Return the value if obj is not an object
@@ -46,8 +46,10 @@ export function copyObject(obj) {
   // Create an array or object to hold the values
   resultObj = Array.isArray(obj) ? [] : {};
 
-  for (key in obj) {
-    value = obj[key];
+  // можно разделить arr и  obj  и сделать разные loops
+
+  for (let key in obj) {
+    let value = obj[key];
 
     // Recursively (deep) copy for nested objects, including arrays
     resultObj[key] = copyObject(value);
@@ -55,18 +57,6 @@ export function copyObject(obj) {
 
   return resultObj;
 }
-
-console.log(copyObject({
-      a: 1,
-      b: { c: 2 },
-      d: [1, 2, 3],
-      e: {
-        f: {
-          g: "hello",
-          h: { i: null },
-        },
-      },
-    }))
 
 /**
  * Write an implementation of the 'findIndex' function that takes a sorted array and a value
@@ -105,31 +95,62 @@ export function sortArray(arr) {
  * @param list
  * @returns {number}
  */
-export function sumListValues(list) {
+// export function sumListValues(list) {
   // your implementation here
 
-let value, key, num;
-let result = 0
+  // my old code
+///////////////////////////////////////////////////////////
 
-if (typeof list !== "object" || list === null) {
-  return list; // Return the value if obj is not an object
-}
+// let value, key, num;
+// let result = 0
 
-for (key in list) {
-  value = list[key];
-  // Recursively (deep) copy for nested objects, including arrays
-  if (typeof list[key] === 'object' && value !== null) {
-    console.log(value.value);
+// if (typeof list !== "object" || list === null) {
+//   return list; // Return the value if obj is not an object
+// }
 
-    result = value.value + value.value
-    sumListValues(value)
-    return result
-  }
-}
+// for (key in list) {
+//   value = list[key];
+//   // Recursively (deep) copy for nested objects, including arrays
+//   if (typeof list[key] === 'object' && value !== null) {
+//     console.log(value.value);
 
-}
+//     result = value.value + value.value
+//     sumListValues(value)
+//     return result
+//   }
+// }
 
-console.log(sumListValues({
+// }
+
+// console.log(sumListValues({
+//   value: 2,
+//   next: {
+//     value: 4,
+//     next: {
+//       value: 5,
+//       next: {
+//         value: 6,
+//         next: {
+//           value: 7,
+//           next: {
+//             value: 8,
+//             next: {
+//               value: 9,
+//               next: null,
+//             },
+//           },
+//         },
+//       },
+//     },
+//   },
+// }))
+
+
+  // New code
+///////////////////////////////////////////
+
+
+const obj = {
   value: 2,
   next: {
     value: 4,
@@ -150,4 +171,35 @@ console.log(sumListValues({
       },
     },
   },
-}))
+};
+
+
+export function sumListValues(list) {
+  let result = list.value;
+  
+  function sum(obj) {
+    // do smth while obj.next exists and not equal to 'null'
+    while (obj?.next && obj?.next !== null) {
+      // add value of the object to the result
+      result += obj.value;
+      // recursively invoke func again with next level inner object as argument
+      return sum(obj.next);
+    }
+
+    // check if value exists inside obj.next (handles the last level of obj)
+    if (obj?.value) {
+      result += obj.value;
+    }
+  }
+  
+  //  check if inner object is not a 'null'
+  if(list?.next !== null) {
+    // start our recursive function
+    sum(list.next);
+  }
+  
+  return result;
+}
+
+
+console.log(sumListValues(obj)) // 41
