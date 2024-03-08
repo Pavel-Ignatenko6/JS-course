@@ -17,7 +17,14 @@
  **/
 
 export function makeCounter() {
-    // your implementation here
+  // your implementation here
+  let counter = 0;
+
+  return function () {
+    console.log(counter);
+    counter++;
+    return counter;
+  };
 }
 
 /**
@@ -28,7 +35,18 @@ export function makeCounter() {
  * @returns {number}
  */
 export function sumTo(num) {
-    // your implementation here
+  // your implementation here
+  let counter = 0;
+  const arr = [];
+
+  while (counter < num) {
+    counter++;
+    arr.push(counter);
+  }
+
+  return arr.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 }
 
 /**
@@ -40,8 +58,11 @@ export function sumTo(num) {
  *
  * @param arr
  **/
-export function sumArrElems (arr) {
-    // your implementation here
+export function sumArrElems(arr) {
+  // your implementation here
+  return arr.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 }
 
 /**
@@ -54,8 +75,8 @@ export function sumArrElems (arr) {
  * @param num
  * @returns {number}
  */
-export function binarySearchIndex (arr, num) {
-    // your implementation here
+export function binarySearchIndex(arr, num) {
+  // your implementation here
 }
 
 /**
@@ -82,5 +103,5 @@ export function binarySearchIndex (arr, num) {
  * @returns {Array}
  */
 export function spiralOrder(matrix) {
-    // your implementation here
+  // your implementation here
 }
