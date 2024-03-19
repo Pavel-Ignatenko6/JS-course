@@ -98,58 +98,6 @@ export function sortArray(arr) {
 // export function sumListValues(list) {
   // your implementation here
 
-  // my old code
-///////////////////////////////////////////////////////////
-
-// let value, key, num;
-// let result = 0
-
-// if (typeof list !== "object" || list === null) {
-//   return list; // Return the value if obj is not an object
-// }
-
-// for (key in list) {
-//   value = list[key];
-//   // Recursively (deep) copy for nested objects, including arrays
-//   if (typeof list[key] === 'object' && value !== null) {
-//     console.log(value.value);
-
-//     result = value.value + value.value
-//     sumListValues(value)
-//     return result
-//   }
-// }
-
-// }
-
-// console.log(sumListValues({
-//   value: 2,
-//   next: {
-//     value: 4,
-//     next: {
-//       value: 5,
-//       next: {
-//         value: 6,
-//         next: {
-//           value: 7,
-//           next: {
-//             value: 8,
-//             next: {
-//               value: 9,
-//               next: null,
-//             },
-//           },
-//         },
-//       },
-//     },
-//   },
-// }))
-
-
-  // New code
-///////////////////////////////////////////
-
-
 const obj = {
   value: 2,
   next: {
@@ -185,7 +133,6 @@ export function sumListValues(list) {
       // recursively invoke func again with next level inner object as argument
       return sum(obj.next);
     }
-
     // check if value exists inside obj.next (handles the last level of obj)
     if (obj?.value) {
       result += obj.value;
@@ -200,6 +147,3 @@ export function sumListValues(list) {
   
   return result;
 }
-
-
-console.log(sumListValues(obj)) // 41
