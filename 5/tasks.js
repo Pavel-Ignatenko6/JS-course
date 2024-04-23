@@ -23,13 +23,5 @@ export function isPalindrome(str) {
     backwardsStr += changedStr[i]
   }
 
-  if (changedStr.toLowerCase().trim() === backwardsStr.toLowerCase().trim()) {
-    return true;
-  }
-  return false
+  return changedStr.toLowerCase().trim() === backwardsStr.toLowerCase().trim()
 }
-
-
-console.log(isPalindrome("Hello"));
-console.log(isPalindrome("Yo, Banana Boy! "));
-// console.log(isPalindrome("radar"));
