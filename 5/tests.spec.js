@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { isPalindrome } from '../1/tasks.js';
+import { isPalindrome } from '../5/tasks.js';
 
 describe('"isPalindrome" function should correctly check the receiving string for a palindrome', () => {
   test('"isPalindrome" function should return true for palindromes', () => {
