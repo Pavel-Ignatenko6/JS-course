@@ -10,11 +10,10 @@ export function isPalindrome(str) {
   // your implementation here
   let changedStr = ''
   let backwardsStr = ""
-  let specialChars = /[`!@#$%^&*()_\-+=\[\]{};'’:"\\|,.<>\/?~ ]/;
-
+  let specialChars = /\W|_/
 
   for (let i = 0; i < str.length; i++) {
-    if (str[i] !== " " && !specialChars.test(str[i])) {
+    if (!specialChars.test(str[i])) {
       changedStr += str[i];
     }
   }
